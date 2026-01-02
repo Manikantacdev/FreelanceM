@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/freelancer/MyProjects.css';
 
@@ -16,8 +16,8 @@ const MyProjects = () => {
   const [statusFilter, setStatusFilter] = useState('');
 
   const fetchProjects = useCallback(async () => {
-    await axios
-      .get('http://localhost:6001/fetch-projects')
+    await api
+      .get('/fetch-projects')
       .then((response) => {
         const filtered = response.data.filter((project) => project.freelancerId === localStorage.getItem('userId'));
         setProjects(filtered);

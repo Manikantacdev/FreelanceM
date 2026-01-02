@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import '../../styles/client/ClientApplications.css';
 
 const ProjectApplications = () => {
@@ -8,7 +8,7 @@ const ProjectApplications = () => {
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get('http://localhost:6001/fetch-applications');
+      const response = await api.get('/fetch-applications');
       const mine = response.data.filter((application) => application.clientId === localStorage.getItem('userId'));
       setApplications([...mine].reverse());
     } catch (error) {
@@ -40,7 +40,7 @@ const ProjectApplications = () => {
 
   const handleApprove = async (id) => {
     try {
-      await axios.get(`http://localhost:6001/approve-application/${id}`);
+      await api.get(`/approve-application/${id}`);
       alert('Application approved.');
       fetchApplications();
     } catch (error) {
@@ -50,7 +50,7 @@ const ProjectApplications = () => {
 
   const handleReject = async (id) => {
     try {
-      await axios.get(`http://localhost:6001/reject-application/${id}`);
+      await api.get(`/reject-application/${id}`);
       alert('Application rejected.');
       fetchApplications();
     } catch (error) {

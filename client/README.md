@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# FreelanceM - Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Modern React frontend for the FreelanceM freelancing platform.
 
-## Available Scripts
+## 🚀 Tech Stack
 
-In the project directory, you can run:
+- **React 18** with Vite
+- **Socket.io Client** for real-time chat
+- **React Router** for navigation
+- **Axios** for API requests
 
-### `npm start`
+## 🔧 Local Development
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+# Install dependencies
+npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Start development server
+npm run dev
+```
 
-### `npm test`
+App runs at `http://localhost:5173`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🌐 Deployment to Vercel
 
-### `npm run build`
+### Step 1: Push to GitHub
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd client
+git init
+git add .
+git commit -m "Initial commit - FreelanceM client"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/freelancem-client.git
+git push -u origin main
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Step 2: Deploy on Vercel
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click **"Add New Project"**
+3. Import your `freelancem-client` repository
+4. Configure build settings:
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+5. Click **Deploy**
 
-### `npm run eject`
+### Step 3: Configure for Production
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app automatically uses `https://freelancerm-api.onrender.com` as the API backend in production mode (configured in `src/config.js`).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+├── components/      # Reusable UI components
+├── context/         # React Context providers
+├── pages/           # Page components
+│   ├── admin/       # Admin dashboard pages
+│   ├── client/      # Client dashboard pages
+│   └── freelancer/  # Freelancer dashboard pages
+├── styles/          # CSS stylesheets
+├── config.js        # API configuration
+└── App.jsx          # Main app component
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎨 Design System
 
-## Learn More
+The app uses a custom dark theme with:
+- **Primary Accent**: #f26b21 (Orange)
+- **Canvas**: #070b12 (Deep navy)
+- **Fonts**: Syne (headings), Epilogue (body)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

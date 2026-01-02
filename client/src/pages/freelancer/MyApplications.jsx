@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import '../../styles/freelancer/MyApplications.css';
 
 const MyApplications = () => {
   const [applications, setApplications] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('http://localhost:6001/fetch-applications')
+    api
+      .get('/fetch-applications')
       .then((response) => {
         setApplications(response.data);
       })

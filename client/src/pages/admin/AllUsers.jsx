@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import '../../styles/admin/allUsers.css';
 
 const ROLE_LABELS = {
@@ -14,7 +14,7 @@ const AllUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:6001/fetch-users');
+        const response = await api.get('/fetch-users');
         setUsers(response.data);
       } catch (error) {
         console.log(error);

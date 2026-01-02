@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/freelancer/AllProjects.css';
 
@@ -10,8 +10,8 @@ const AllProjects = () => {
   const [categoryFilter, setCategoryFilter] = useState([]);
 
   const fetchProjects = useCallback(async () => {
-    await axios
-      .get('http://localhost:6001/fetch-projects')
+    await api
+      .get('/fetch-projects')
       .then((response) => {
         setProjects(response.data);
         setDisplayProjects([...response.data].reverse());

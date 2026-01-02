@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/client/client.css';
 
@@ -40,7 +40,7 @@ const Client = () => {
 
   const fetchProjects = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:6001/fetch-projects');
+      const response = await api.get('/fetch-projects');
       const owned = response.data.filter((project) => project.clientId === localStorage.getItem('userId'));
       const sorted = [...owned].reverse();
       setProjects(sorted);

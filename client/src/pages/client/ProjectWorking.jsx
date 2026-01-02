@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import { useParams } from 'react-router-dom';
 import { GeneralContext } from '../../context/GeneralContext';
 import '../../styles/client/ProjectWorking.css';
@@ -23,7 +23,7 @@ const ProjectWorking = () => {
 
   const fetchProject = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:6001/fetch-project/${id}`);
+      const response = await api.get(`/fetch-project/${id}`);
       setProject(response.data);
     } catch (error) {
       console.log(error);
@@ -32,7 +32,7 @@ const ProjectWorking = () => {
 
   const fetchChats = useCallback(async () => {
     try {
-      const response = await axios.get(`http://localhost:6001/fetch-chats/${id}`);
+      const response = await api.get(`/fetch-chats/${id}`);
       setChats(response.data);
     } catch (error) {
       console.log(error);
@@ -60,7 +60,7 @@ const ProjectWorking = () => {
 
   const handleApproveSubmission = async () => {
     try {
-      await axios.get(`http://localhost:6001/approve-submission/${id}`);
+      await api.get(`/approve-submission/${id}`);
       fetchProject();
       alert('Submission approved.');
     } catch (error) {
@@ -70,7 +70,7 @@ const ProjectWorking = () => {
 
   const handleRejectSubmission = async () => {
     try {
-      await axios.get(`http://localhost:6001/reject-submission/${id}`);
+      await api.get(`/reject-submission/${id}`);
       fetchProject();
       alert('Submission rejected.');
     } catch (error) {

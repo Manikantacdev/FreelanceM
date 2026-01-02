@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../../config';
 import '../../styles/freelancer/freelancer.css';
 
 const Freelancer = () => {
@@ -19,7 +19,7 @@ const Freelancer = () => {
     const userId = localStorage.getItem('userId');
     if (!userId) return;
 
-    axios.get(`http://localhost:6001/fetch-freelancer/${userId}`).then((response) => {
+    api.get(`/fetch-freelancer/${userId}`).then((response) => {
       setFreelancerData(response.data);
       if (response.data) {
         setFreelancerId(response.data._id);
@@ -36,8 +36,8 @@ const Freelancer = () => {
   }, []);
 
   const updateUserData = async () => {
-    await axios
-      .post(`http://localhost:6001/update-freelancer`, {
+    await api
+      .post(`/update-freelancer`, {
         freelancerId,
         updateSkills,
         description: updateDescription,
@@ -62,8 +62,8 @@ const Freelancer = () => {
   };
 
   useEffect(() => {
-    axios
-      .get('http://localhost:6001/fetch-applications')
+    api
+      .get('/fetch-applications')
       .then((response) => {
         setApplicationsCount(
           response.data.filter((application) => application.freelancerId === localStorage.getItem('userId'))

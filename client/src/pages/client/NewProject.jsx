@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/client/newProject.css';
 
@@ -22,7 +22,7 @@ const NewProject = () => {
     setIsSubmitting(true);
 
     try {
-      await axios.post('http://localhost:6001/new-project', {
+      await api.post('/new-project', {
         title: title.trim(),
         description: description.trim(),
         budget: Number(budget),

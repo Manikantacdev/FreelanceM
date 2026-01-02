@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react'
 import {useParams} from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../../config';
 import '../../styles/freelancer/ProjectData.css'
 import { GeneralContext } from '../../context/GeneralContext';
 import FloatingChat from '../../components/FloatingChat';
@@ -34,7 +34,7 @@ const ProjectData = () => {
 
 
   const fetchProject = async(id) =>{
-    await axios.get(`http://localhost:6001/fetch-project/${id}`).then(
+    await api.get(`/fetch-project/${id}`).then(
       (response)=>{
         setProject(response.data);
         setProjectId(response.data._id);
@@ -56,7 +56,7 @@ const ProjectData = () => {
 
     const handleBidding = async() =>{
 
-      await axios.post("http://localhost:6001/make-bid", {clientId, freelancerId, projectId, proposal, bidAmount: Number(bidAmount), estimatedTime: Number(estimatedTime)}).then(
+      await api.post("/make-bid", {clientId, freelancerId, projectId, proposal, bidAmount: Number(bidAmount), estimatedTime: Number(estimatedTime)}).then(
         (response)=>{
             setProposal('');
             setBidAmount('');
@@ -77,7 +77,7 @@ const ProjectData = () => {
 
     const handleProjectSubmission = async() =>{
 
-      await axios.post("http://localhost:6001/submit-project", {clientId, freelancerId, projectId, projectLink, manualLink, submissionDescription}).then(
+      await api.post("/submit-project", {clientId, freelancerId, projectId, projectLink, manualLink, submissionDescription}).then(
         (response)=>{
             setProjectLink('');
             setManualLink('');
@@ -112,7 +112,7 @@ const ProjectData = () => {
     };
 
     const fetchChats = useCallback(async() =>{
-      await axios.get(`http://localhost:6001/fetch-chats/${params['id']}`).then(
+      await api.get(`/fetch-chats/${params['id']}`).then(
         (response) =>{
           setChats(response.data);
         }

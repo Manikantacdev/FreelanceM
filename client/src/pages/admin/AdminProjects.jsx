@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import '../../styles/admin/adminProjects.css';
 
 const formatDate = (value) => {
@@ -15,7 +15,7 @@ const AdminProjects = () => {
 
   const fetchProjects = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:6001/fetch-projects');
+      const response = await api.get('/fetch-projects');
       setProjects([...response.data].reverse());
     } catch (error) {
       console.log(error);

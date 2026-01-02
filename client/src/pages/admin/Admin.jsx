@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { api } from '../../config';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/admin/admin.css';
 
@@ -14,9 +14,9 @@ const Admin = () => {
     const fetchData = async () => {
       try {
         const [projectsRes, appsRes, usersRes] = await Promise.all([
-          axios.get('http://localhost:6001/fetch-projects'),
-          axios.get('http://localhost:6001/fetch-applications'),
-          axios.get('http://localhost:6001/fetch-users'),
+          api.get('/fetch-projects'),
+          api.get('/fetch-applications'),
+          api.get('/fetch-users'),
         ]);
 
         setProjectsCount(projectsRes.data.length);
