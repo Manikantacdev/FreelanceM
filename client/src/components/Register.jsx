@@ -70,7 +70,7 @@ const Register = ({ setAuthType }) => {
         </select>
       </div>
 
-      <button type="submit">Join SB Works</button>
+      <button type="submit">Join FreelanceM</button>
 
       <p className="form-switch">
         Already part of the studio?

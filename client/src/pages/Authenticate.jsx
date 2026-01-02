@@ -24,7 +24,7 @@ const Authenticate = () => {
       <header className="auth-header" role="banner">
         <div className="brand-lockup" onClick={() => navigate('/') }>
           <span className="brand-glyph">SB</span>
-          <span className="brand-wordmark">SB Works Atelier</span>
+          <span className="brand-wordmark">FreelanceM</span>
         </div>
         <button className="ghost-button" type="button" onClick={() => navigate('/') }>
           Return home

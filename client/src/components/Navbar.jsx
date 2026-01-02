@@ -42,7 +42,7 @@ const Navbar = () => {
         <div className="brand-lockup">
           <span className="brand-glyph">SB</span>
           <div className="nav-brand-text">
-            <span className="nav-subtle">SB Works Atelier</span>
+            <span className="nav-subtle">FreelanceM</span>
             <strong>{userType} suite</strong>
           </div>
         </div>

@@ -68,7 +68,8 @@ const GeneralContextProvider = ({children}) => {
           }
  
         }).catch((err) =>{
-            alert("registration failed!!");
+            const errorMessage = err.response?.data?.error || err.response?.data?.msg || "Registration failed!";
+            alert(errorMessage);
             console.log(err);
         });
     }catch(err){
