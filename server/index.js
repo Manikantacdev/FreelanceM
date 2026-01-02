@@ -32,6 +32,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 const allowedOrigins = [
     'http://localhost:3000',
     'http://localhost:5173',
+    'https://freelancem.vercel.app',
     process.env.CLIENT_URL
 ].filter(Boolean);
 
@@ -39,14 +40,16 @@ app.use(cors({
     origin: function(origin, callback) {
         // Allow requests with no origin (mobile apps, curl, etc.)
         if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
-            callback(null, true);
+        // Allow Vercel preview URLs and production
+        if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+            callback(null, origin);
         } else {
-            callback(null, true); // Allow all for now, tighten in production
+            callback(null, origin); // Allow all origins for flexibility
         }
     },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 
@@ -56,13 +59,14 @@ const io = new Server(server, {
     cors: {
         origin: function(origin, callback) {
             if (!origin) return callback(null, true);
-            if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
-                callback(null, true);
+            if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+                callback(null, origin);
             } else {
-                callback(null, true);
+                callback(null, origin);
             }
         },
-        methods: ['GET', 'POST', 'PUT', 'DELETE']
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        credentials: true
     }
 });
 
