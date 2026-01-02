@@ -1,0 +1,120 @@
+.new-project-shell {
+    display: grid;
+    gap: clamp(1.8rem, 2.6vw, 2.8rem);
+}
+
+.new-project-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 760px;
+}
+
+.new-project-hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 3.4vw, 2.9rem);
+    letter-spacing: -0.01em;
+}
+
+.new-project-hero p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.new-project-form {
+    display: grid;
+    gap: 1.4rem;
+    padding: clamp(2.4rem, 3vw, 3.1rem);
+}
+
+.new-project-form input,
+.new-project-form textarea {
+    width: 100%;
+    background: rgba(9, 14, 24, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 0.9rem 1.1rem;
+    color: var(--color-text-primary);
+    font-size: 0.95rem;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    resize: vertical;
+}
+
+.new-project-form textarea {
+    min-height: 180px;
+    line-height: 1.6;
+}
+
+.new-project-form input:focus-visible,
+.new-project-form textarea:focus-visible {
+    outline: none;
+    border-color: rgba(242, 107, 33, 0.45);
+    box-shadow: 0 0 0 3px rgba(242, 107, 33, 0.12);
+}
+
+.input-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--color-text-muted);
+}
+
+.new-project-split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+}
+
+.field-hint {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.new-project-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.new-project-actions button {
+    min-width: 160px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: linear-gradient(160deg, rgba(242, 107, 33, 0.82), rgba(253, 160, 68, 0.72));
+    color: #0c111a;
+    font-weight: 600;
+    padding: 0.85rem 1.6rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), opacity var(--transition-base);
+}
+
+.new-project-actions button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-ring);
+}
+
+.new-project-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.new-project-actions .ghost-button {
+    background: transparent;
+    color: var(--color-text-secondary);
+    box-shadow: none;
+}
+
+.new-project-actions .ghost-button:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    .new-project-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+}

@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-canvas: #070b12;
+  --color-canvas-soft: #0f1624;
+  --color-card: rgba(15, 26, 42, 0.85);
+  --color-overlay: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #f4ece2;
+  --color-text-secondary: #bcb6ad;
+  --color-text-muted: #7c8694;
+  --color-accent: #f26b21;
+  --color-accent-soft: rgba(242, 107, 33, 0.15);
+  --color-success: #78c49c;
+  --color-danger: #ff6b6b;
+  --shadow-soft: 0 20px 45px -20px rgba(0, 0, 0, 0.6);
+  --shadow-ring: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --max-content-width: 1600px;
+  --transition-base: 220ms ease;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  font-family: 'Epilogue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 15% 20%, rgba(242, 107, 33, 0.11), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(120, 196, 156, 0.08), transparent 40%),
+    radial-gradient(circle at 60% 80%, rgba(15, 92, 137, 0.18), transparent 50%);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  mix-blend-mode: soft-light;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Syne', sans-serif;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+p,
+span,
+label,
+input,
+textarea,
+select,
+button {
+  font-family: 'Epilogue', sans-serif;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover,
+a:focus {
+  color: #ff8b49;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  background: var(--color-accent);
+  color: #080b12;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -12px rgba(242, 107, 33, 0.7);
+}
+
+button:disabled {
+  background: var(--color-text-muted);
+  color: rgba(8, 11, 18, 0.6);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 16, 26, 0.85);
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

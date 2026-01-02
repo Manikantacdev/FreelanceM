@@ -1,0 +1,135 @@
+.app-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 clamp(2rem, 4vw, 4rem);
+    height: 72px;
+    display: grid;
+    grid-template-columns: minmax(200px, 0.9fr) minmax(320px, 1.4fr) minmax(180px, 0.8fr);
+    align-items: center;
+    gap: clamp(1rem, 2vw, 2rem);
+    background: rgba(9, 15, 24, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+.nav-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.nav-brand-text strong {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    text-transform: capitalize;
+    letter-spacing: 0.08em;
+}
+
+.nav-subtle {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.nav-links {
+    display: inline-flex;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.nav-links button {
+    background: transparent;
+    border-radius: 18px;
+    padding: 0.65rem 1.35rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    color: var(--color-text-secondary);
+    box-shadow: none;
+}
+
+.nav-links button:hover,
+.nav-links button:focus-visible {
+    color: var(--color-text-primary);
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-links button[data-active='true'] {
+    background: var(--color-accent);
+    color: #080b12;
+    border-color: transparent;
+    box-shadow: 0 10px 24px -14px rgba(242, 107, 33, 0.65);
+}
+
+.nav-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.2rem;
+}
+
+.nav-user-tag {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    align-items: flex-end;
+}
+
+.nav-user-label {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 1080px) {
+    .app-navbar {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 1.1rem 1.4rem;
+        gap: 1.4rem;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .nav-meta {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .nav-user-tag {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-navbar {
+        margin-top: 1.5rem;
+        padding: 1rem 1.1rem;
+    }
+
+    .nav-links {
+        width: 100%;
+    }
+
+    .nav-links button {
+        flex: 1 1 calc(50% - 0.6rem);
+        text-align: center;
+    }
+}

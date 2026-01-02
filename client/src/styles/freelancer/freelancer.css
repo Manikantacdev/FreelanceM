@@ -1,0 +1,88 @@
+.freelancer-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.4rem, 3vw, 3.4rem);
+}
+
+.metrics-wrap {
+    margin: 0;
+}
+
+.metrics-wrap .metric-card {
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.metrics-wrap .metric-card strong {
+    font-size: clamp(2rem, 3.2vw, 2.6rem);
+}
+
+.metrics-wrap .metric-card button {
+    margin-top: auto;
+}
+
+.profile-panel {
+    padding: clamp(2.6rem, 3.2vw, 3rem);
+    display: grid;
+    gap: clamp(1.8rem, 2.6vw, 2.4rem);
+}
+
+.profile-view header,
+.profile-edit header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-width: 620px;
+}
+
+.profile-view header p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.8rem, 2.4vw, 2.2rem);
+}
+
+.skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.profile-description {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.empty-state {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.profile-edit {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.profile-edit textarea {
+    min-height: 160px;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+@media (max-width: 720px) {
+    .edit-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+}

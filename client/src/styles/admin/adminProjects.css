@@ -1,0 +1,129 @@
+.admin-projects {
+    display: grid;
+    gap: clamp(1.8rem, 2.6vw, 2.8rem);
+}
+
+.admin-projects-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 720px;
+}
+
+.admin-projects-hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.55rem);
+}
+
+.admin-projects-hero p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.admin-filters {
+    display: grid;
+    gap: 1rem;
+    padding: clamp(1.4rem, 2vw, 2rem);
+}
+
+.admin-filters h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filter-chip {
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+    transition: background var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}
+
+.filter-chip:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-chip.active {
+    background: rgba(242, 107, 33, 0.18);
+    border-color: rgba(242, 107, 33, 0.36);
+    color: var(--color-accent);
+}
+
+.admin-project-list {
+    padding: clamp(2rem, 2.6vw, 2.8rem);
+}
+
+.admin-project-grid {
+    display: grid;
+    gap: clamp(1.4rem, 2vw, 1.8rem);
+}
+
+.admin-project-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1.6rem 1.8rem;
+    border-radius: 24px;
+    background: rgba(9, 14, 24, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.admin-project-card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-3px);
+}
+
+.admin-project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.2rem;
+}
+
+.admin-project-head h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.admin-project-description {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.admin-project-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.admin-project-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.admin-empty {
+    text-align: center;
+    padding: 3rem;
+}
+
+@media (max-width: 720px) {
+    .admin-project-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
