@@ -137,7 +137,7 @@ freelancem/
    Create a `.env` file in the `server/` directory:
    ```env
    PORT=6001
-   MONGODB_URI=mongodb://localhost:27017/freelancem
+   MONGODB_URI=mongodbURL
    ```
 
 ### Running the Application
