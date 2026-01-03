@@ -100,6 +100,11 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Freelanci
                 return res.status(400).json({ error: 'Password must be at least 6 characters' });
             }
 
+            // Block admin registration - admin account is predefined in .env
+            if (usertype === 'admin') {
+                return res.status(403).json({ error: 'Admin registration is not allowed' });
+            }
+
             // Check if user already exists
             const existingUser = await User.findOne({ email });
             if (existingUser) {
@@ -136,6 +141,22 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Freelanci
     app.post('/login', async (req, res) =>{
         try{
             const {email, password} = req.body;
+
+            // Check for admin login using .env credentials
+            const adminEmail = process.env.ADMIN_EMAIL;
+            const adminPassword = process.env.ADMIN_PASSWORD;
+            const adminUsername = process.env.ADMIN_USERNAME || 'Admin';
+
+            if (email === adminEmail && password === adminPassword) {
+                // Return admin user object
+                return res.status(200).json({
+                    _id: 'admin',
+                    username: adminUsername,
+                    email: adminEmail,
+                    usertype: 'admin'
+                });
+            }
+
             const user = await User.findOne({email:email});
             if(!user) return res.status(400).json({msg: "User does not exist"});
     

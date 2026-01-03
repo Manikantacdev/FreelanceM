@@ -66,7 +66,6 @@ const Register = ({ setAuthType }) => {
           </option>
           <option value="freelancer">Freelancer</option>
           <option value="client">Client</option>
-          <option value="admin">Admin</option>
         </select>
       </div>
 

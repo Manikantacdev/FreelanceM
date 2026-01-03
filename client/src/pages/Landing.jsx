@@ -48,6 +48,9 @@ const Landing = () => {
           <button className="ghost-button" type="button" onClick={() => navigate('/authenticate')}>
             Sign in
           </button>
+          <button type="button" onClick={() => navigate('/authenticate?mode=register')}>
+            Sign up
+          </button>
         </div>
       </header>
 
