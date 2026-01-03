@@ -1,9 +1,7 @@
 // API Configuration
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://freelancerm-api.onrender.com'  // Production
-  : 'http://localhost:6001';                 // Development
+const API_BASE_URL = 'https://freelancerm-api.onrender.com';
 
 // Create axios instance with base URL
 export const api = axios.create({
